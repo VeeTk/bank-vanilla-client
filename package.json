@@ -1,0 +1,19 @@
+{
+  "name": "red-bank-js-intensive",
+  "version": "1.0.0",
+  "description": "Progect from htmllessons.ru intesive",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VeeTk/bank-vanilla-client.git"
+  },
+  "author": "Дмитрий Ткачев",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VeeTk/bank-vanilla-client/issues"
+  },
+  "homepage": "https://github.com/VeeTk/bank-vanilla-client#readme"
+}
