@@ -1,37 +1,36 @@
 import { ROUTES } from "./routes.data";
 import { NotFound } from "../../components/screens/not-found/not-found.component";
 import { Layout } from "../../components/layout/layout.component";
-// import { doc } from "prettier";
 
 export class Router {
-  #routes = ROUTES
-  #currentRoute = null
+  #routes = ROUTES;
+  #currentRoute = null;
   #layout = null;
 
   constructor() {
     window.addEventListener("popstate", () => {
-      this.#handleRouteChange()
-    })
+      this.#handleRouteChange();
+    });
 
     this.#handleRouteChange();
     this.#handleLinks();
   }
 
   #handleLinks() {
-    document.addEventListener('click', (event) => {
-      const target = event.target.closest('a')
+    document.addEventListener("click", (event) => {
+      const target = event.target.closest("a");
 
-      if(target){
-        event.preventDefault()
-        this.navigate(target.href)
+      if (target) {
+        event.preventDefault();
+        this.navigate(target.href);
       }
-    })
+    });
   }
 
   navigate(path) {
-    if(path !== this.getCurrentPath()) {
-      window.history.pushState({}, '', path)
-      this.#handleRouteChange()
+    if (path !== this.getCurrentPath()) {
+      window.history.pushState({}, "", path);
+      this.#handleRouteChange();
     }
   }
 
@@ -40,13 +39,13 @@ export class Router {
   }
 
   #handleRouteChange() {
-    const path = this.getCurrentPath() || '/';
-    let route = this.#routes.find(route => route.path === path);
+    const path = this.getCurrentPath() || "/";
+    let route = this.#routes.find((route) => route.path === path);
 
     if (!route) {
       route = {
-        component: NotFound
-      }
+        component: NotFound,
+      };
     }
     this.#currentRoute = route;
     this.#render();
